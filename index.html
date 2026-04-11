@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Полх Тимофей Александрович — Полное резюме</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #eef2f7;
+    --page: #ffffff;
+    --card: #ffffff;
+    --card-alt: #f1f5f9;
+    --border: #dbeafe;
+    --border-strong: #bfdbfe;
+    --text: #0f172a;
+    --text-dim: #475569;
+    --text-faint: #94a3b8;
+    --accent: #2563eb;
+    --accent-dark: #1d4ed8;
+    --tag-bg: #10b981;
+    --tag-text: #ffffff;
+    --warn: #f59e0b;
+    --shadow: 0 1px 3px rgba(15,23,42,0.06), 0 10px 30px rgba(30,64,175,0.12);
+    --shadow-sm: 0 1px 3px rgba(15,23,42,0.06), 0 4px 12px rgba(30,64,175,0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: #fff; }
+
+  code {
+    font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    font-size: 0.88em;
+    padding: 1px 6px;
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text);
+  }
+
+  strong { font-weight: 600; color: var(--text); }
+
+  /* ---------- Progress bar ---------- */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: var(--accent);
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.05s linear;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 260px;
+    height: 100vh;
+    padding: 32px 20px 24px;
+    background: var(--page);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 50;
+  }
+
+  .sidebar-identity {
+    text-align: center;
+    padding: 6px 8px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-avatar {
+    width: 68px; height: 68px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    background: var(--card-alt);
+    border: 1.5px solid var(--accent);
+    display: flex;
+    align-items: center; justify-content: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 22px; font-weight: 700;
+    color: var(--text); letter-spacing: -1px;
+  }
+
+  .sidebar-name {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px; font-weight: 700;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-role {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    border-radius: 999px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 8.5pt; font-weight: 600;
+  }
+  .sidebar-role svg {
+    width: 11px; height: 11px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 7px 11px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px; font-weight: 500;
+    color: var(--text-dim);
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover {
+    color: var(--text);
+    background: var(--card-alt);
+  }
+
+  .nav-link.active {
+    color: var(--text);
+    background: var(--card-alt);
+    border-color: var(--border-strong);
+  }
+
+  .nav-sub {
+    padding-left: 20px;
+    font-size: 10px;
+    color: var(--text-faint);
+    font-weight: 400;
+  }
+
+  /* ---------- Content ---------- */
+  .content {
+    margin-left: 260px;
+    max-width: 920px;
+    padding: 32px 40px 100px;
+  }
+
+  .content > * + * {
+    margin-top: 20px;
+  }
+
+  /* ---------- Card ---------- */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .section-head {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13pt; font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+
+  .projects-head {
+    padding: 8px 4px 0;
+    margin-top: 28px !important;
+    margin-bottom: -4px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero-card {
+    padding: 32px 34px 28px;
+  }
+
+  .hero-name {
+    font-family: "Inter", sans-serif;
+    font-size: 28pt;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-role {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10pt;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .hero-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 22px;
+    padding-bottom: 20px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9.5pt;
+    color: var(--text-dim);
+    transition: color 0.15s;
+  }
+  .contact:hover { color: var(--accent); }
+  .contact svg {
+    width: 14px; height: 14px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
+    color: var(--text-faint);
+    flex-shrink: 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+
+  .stat {
+    padding: 14px 10px;
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .stat-value {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 15pt;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.1;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  .stat-label {
+    font-family: "Inter", sans-serif;
+    font-size: 8.5pt;
+    color: var(--text-dim);
+    line-height: 1.35;
+  }
+
+  /* ---------- Prose ---------- */
+  .prose p {
+    font-size: 10pt;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+  .prose p + p { margin-top: 10px; }
+  .prose strong { color: var(--text); font-weight: 600; }
+
+  /* ---------- Career timeline ---------- */
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    position: relative;
+    margin: 6px 0 22px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 18%;
+    right: 18%;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.35;
+    z-index: 0;
+  }
+  .stage {
+    position: relative;
+    z-index: 1;
+    padding: 14px 12px 12px;
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-align: center;
+  }
+  .stage-num {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; font-weight: 700;
+    margin-bottom: 8px;
+    border: 2px solid var(--card);
+  }
+  .stage-title {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9.5pt; font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .stage-desc {
+    font-size: 8.8pt;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+  .job-sub {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9.5pt;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-left: 2px;
+  }
+
+  /* ---------- Tech lead responsibilities ---------- */
+  .resp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .resp-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 14px;
+    background: var(--card-alt);
+    border-radius: 10px;
+  }
+  .resp-icon {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .resp-icon svg {
+    width: 16px; height: 16px;
+    stroke: var(--accent); fill: none;
+    stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+  .resp-body {
+    flex: 1;
+    font-size: 9pt;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .resp-title {
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+
+  /* ---------- Project card ---------- */
+  .project-card {
+    padding: 26px 28px 24px;
+  }
+  .project-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .project-num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .project-title {
+    font-family: "Inter", sans-serif;
+    font-size: 15pt;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .project-flagship {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9.5pt;
+    font-weight: 500;
+    color: var(--tag-bg);
+    margin-left: 4px;
+  }
+  .stack-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+  .chip {
+    display: inline-block;
+    padding: 3px 10px;
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 8.2pt;
+    font-weight: 500;
+    color: var(--text-dim);
+  }
+  .project-meta-small {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 8.5pt;
+    color: var(--text-faint);
+    margin-bottom: 12px;
+  }
+  .project-intro {
+    padding: 12px 14px;
+    background: var(--card-alt);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-size: 9.8pt;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .project-intro strong { color: var(--text); }
+
+  /* ---------- Tabs ---------- */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    padding: 8px 14px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9.5pt;
+    font-weight: 500;
+    color: var(--text-faint);
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-bottom: -1px;
+  }
+  .tab-btn:hover { color: var(--text-dim); }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .tab-panel.done ul {
+    padding-left: 20px;
+    font-size: 9.8pt;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+  .tab-panel.done ul li { margin-bottom: 6px; }
+  .tab-panel.done ul li strong { color: var(--text); }
+
+  /* ---------- Challenge details ---------- */
+  details {
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--warn);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s;
+  }
+  details[open] {
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+  }
+  details summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Inter", sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--text);
+    user-select: none;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary .warn-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--warn);
+    flex-shrink: 0;
+  }
+  details summary .chev {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-right: 2px solid var(--text-dim);
+    border-bottom: 2px solid var(--text-dim);
+    transform: rotate(-45deg);
+    transition: transform 0.2s;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  details[open] summary .chev {
+    transform: rotate(45deg);
+  }
+  .challenge-inner {
+    padding: 0 16px 16px 38px;
+  }
+  .challenge-body {
+    font-size: 9.5pt;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .challenge-solution {
+    font-size: 9.5pt;
+    color: var(--text-dim);
+    line-height: 1.6;
+    padding: 10px 14px;
+    background: var(--card-alt);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+  }
+  .challenge-solution strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .challenge-solution ul {
+    margin: 8px 0 4px;
+    padding-left: 20px;
+  }
+  .challenge-solution ul li {
+    margin-bottom: 6px;
+  }
+  .challenge-solution .post-note {
+    margin-top: 8px;
+    font-weight: 500;
+  }
+
+  /* ---------- Skills ---------- */
+  .skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .skill-cat {
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .skill-cat:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .skill-title {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 9px;
+  }
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 8.5pt;
+    color: var(--text-dim);
+    transition: all 0.15s;
+  }
+  .tag:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+    background: var(--card);
+  }
+
+  /* ---------- Education ---------- */
+  .edu-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--card-alt);
+    border-radius: 10px;
+    margin-bottom: 14px;
+  }
+  .edu-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center; justify-content: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11pt; font-weight: 700;
+    color: var(--text);
+    flex-shrink: 0;
+  }
+  .edu-body { flex: 1; }
+  .edu-name {
+    font-size: 10.5pt; font-weight: 700;
+    color: var(--text);
+  }
+  .edu-desc {
+    font-size: 9pt;
+    color: var(--text-dim);
+  }
+  .edu-period {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 8.5pt;
+    color: var(--text-faint);
+    white-space: nowrap;
+  }
+  .diploma {
+    font-size: 9.8pt;
+    color: var(--text-dim);
+    line-height: 1.6;
+    padding: 12px 14px;
+    background: var(--card-alt);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 18px;
+  }
+  .diploma strong { color: var(--text); }
+  .sub-head {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 10px;
+  }
+  .prose-list {
+    padding-left: 20px;
+    font-size: 9.8pt;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .prose-list li { margin-bottom: 4px; }
+  .prose-list li strong { color: var(--text); }
+
+  /* ---------- Soft skills ---------- */
+  .soft-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .soft-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    background: var(--card-alt);
+    border-radius: 10px;
+  }
+  .soft-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .soft-icon svg {
+    width: 16px; height: 16px;
+    stroke: var(--accent); fill: none;
+    stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+  .soft-body { flex: 1; }
+  .soft-title {
+    font-size: 9.8pt;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .soft-desc {
+    font-size: 9pt;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  /* ---------- Languages ---------- */
+  .lang-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .lang-item {
+    padding: 12px 14px;
+    background: var(--card-alt);
+    border-radius: 10px;
+  }
+  .lang-name {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .lang-level {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 8.8pt;
+    color: var(--text-faint);
+  }
+
+  /* ---------- Back to top ---------- */
+  .back-to-top {
+    position: fixed;
+    bottom: 32px; right: 32px;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: all 0.25s;
+    z-index: 100;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .back-to-top:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1100px) {
+    .sidebar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: auto;
+      padding: 12px 14px;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      gap: 10px;
+      overflow: visible;
+    }
+    .sidebar-identity { display: none; }
+    .sidebar-nav {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sidebar-nav::-webkit-scrollbar { height: 4px; }
+    .nav-link {
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding: 6px 10px;
+      font-size: 10px;
+    }
+    .nav-sub { padding-left: 10px; }
+    .content {
+      margin-left: 0;
+      padding: 18px 14px 80px;
+      max-width: 100%;
+    }
+    .hero-card { padding: 24px 22px 22px; }
+    .hero-name { font-size: 22pt; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .timeline { grid-template-columns: 1fr; gap: 10px; }
+    .timeline::before { display: none; }
+    .resp-grid, .soft-list, .lang-list { grid-template-columns: 1fr; }
+    .card, .project-card { padding: 20px 18px; }
+    .project-header { gap: 12px; }
+    .project-num { font-size: 18pt; }
+    .project-title { font-size: 13pt; }
+    .back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+  }
+
+  /* ---------- Print ---------- */
+  @media print {
+    body { background: #fff; font-size: 10pt; }
+    .progress-bar, .sidebar, .back-to-top, .tabs { display: none !important; }
+    .content {
+      margin-left: 0 !important;
+      max-width: none !important;
+      padding: 0 !important;
+    }
+    .content > * + * { margin-top: 10px; }
+    .card, .project-card {
+      box-shadow: none !important;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      padding: 14px 16px;
+    }
+    .card .section-head { margin-bottom: 10px; }
+    details {
+      background: #fff !important;
+      box-shadow: none !important;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    details summary .chev { display: none; }
+    .tab-panel { display: block !important; }
+    .tab-panel.done { margin-bottom: 12px; }
+    .tab-panel.challenges { padding-top: 8px; border-top: 1px dashed var(--border); }
+    .hero-name { font-size: 22pt; }
+    .projects-head { margin-top: 12px !important; }
+    a { color: var(--text); }
+  }
+  @page { size: A4; margin: 12mm; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar"></div>
+
+<aside class="sidebar">
+  <div class="sidebar-identity">
+    <div class="sidebar-avatar">ПТ</div>
+    <div class="sidebar-name">Полх Тимофей<br>Александрович</div>
+    <div class="sidebar-role">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      Middle Go · Tech Lead
+    </div>
+  </div>
+  <nav class="sidebar-nav" aria-label="Содержание">
+    <a class="nav-link" href="#about">О себе</a>
+    <a class="nav-link" href="#career">Карьерный путь</a>
+    <a class="nav-link" href="#techlead">Тех-лид ответственность</a>
+    <a class="nav-link" href="#projects">Проекты</a>
+    <a class="nav-link nav-sub" href="#project-antidrone">— Anti-Drone Service</a>
+    <a class="nav-link nav-sub" href="#project-ptz">— PTZ Driver (Pelco-D)</a>
+    <a class="nav-link nav-sub" href="#project-ml">— INK-ML Classification</a>
+    <a class="nav-link nav-sub" href="#project-stand">— Hardware Test Stand</a>
+    <a class="nav-link" href="#skills">Технические навыки</a>
+    <a class="nav-link" href="#education">Образование</a>
+    <a class="nav-link" href="#softskills">Софт скиллы</a>
+    <a class="nav-link" href="#languages">Языки</a>
+  </nav>
+</aside>
+
+<main class="content">
+
+  <!-- ============================== HERO ============================== -->
+  <section id="hero" class="card hero-card">
+    <h1 class="hero-name">Полх Тимофей Александрович</h1>
+    <div class="hero-role">Middle → Senior Go Developer / Backend Engineer · Tech Lead (de facto)</div>
+    <div class="hero-contacts">
+      <span class="contact">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Москва, Россия
+      </span>
+      <a class="contact" href="mailto:tupotim12q@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        tupotim12q@gmail.com
+      </a>
+      <a class="contact" href="tel:+79212612952">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +7 (921) 261-29-52
+      </a>
+      <a class="contact" href="https://t.me/titrom101">
+        <svg viewBox="0 0 24 24"><path d="M21.5 4.5L2.5 12.5l6 2 2 6 3-4 5 4 3-16z"/></svg>
+        @titrom101
+      </a>
+    </div>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-value">~2 года</div>
+        <div class="stat-label">коммерческий опыт</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">~44k LOC</div>
+        <div class="stat-label">flagship anti-drone</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">16 пакетов</div>
+        <div class="stat-label">hexagonal monolith</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">7 race-багов</div>
+        <div class="stat-label">устранено в velocity</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">Tech Lead</div>
+        <div class="stat-label">де-факто</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== ABOUT ============================== -->
+  <section id="about" class="card">
+    <div class="section-head">О себе</div>
+    <div class="prose">
+      <p>
+        Go-разработчик с ~2 годами коммерческого опыта проектирования
+        <strong>real-time распределённых систем</strong>: обработка радарных
+        данных, PTZ-управление камерами по протоколу Pelco-D, интеграция
+        ML-сервисов, hardware-in-the-loop тестирование.
+      </p>
+      <p>
+        Начинал стажёром <strong>computer-vision инженером</strong>, за полгода
+        под задачи проекта переквалифицировался в <strong>Go-разработчика</strong>
+        и вошёл в штат как младший. За 2 года органически вырос до
+        <strong>фактической роли тех-лида</strong>: принимаю архитектурные
+        решения, выбираю технологический стек, координирую frontend-команду,
+        составляю сайзинги инфраструктуры, веду пользовательскую и техническую
+        документацию, выступаю техническим экспертом на встречах с заказчиком.
+      </p>
+      <p>
+        Сильные компетенции в <strong>concurrency</strong> (goroutines, channels,
+        sync primitives), event-loop архитектуре, <strong>hexagonal /
+        ports-and-adapters</strong>, полной observability (Prometheus, pprof,
+        slog), Docker и CI/CD.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== CAREER ============================== -->
+  <section id="career" class="card">
+    <div class="section-head">Карьерный путь</div>
+    <div class="timeline">
+      <div class="stage">
+        <div class="stage-num">01</div>
+        <div class="stage-title">CV Engineer Intern</div>
+        <div class="stage-desc">Старт в Softline. Задачи computer vision для будущего anti-drone продукта.</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">02</div>
+        <div class="stage-title">Junior Go Developer</div>
+        <div class="stage-desc">Переквалификация CV → Go под нужды проекта, зачисление в штат.</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">03</div>
+        <div class="stage-title">Tech Lead (de facto)</div>
+        <div class="stage-desc">Архитектура, стек, frontend-координация, сайзинги, защита решений у заказчика.</div>
+      </div>
+    </div>
+    <div class="job-sub">Softline · 2024 — настоящее время</div>
+    <div class="prose">
+      <p>
+        Первое место коммерческой разработки. Пришёл стажёром computer-vision
+        инженером — работал над задачами CV для будущего anti-drone продукта.
+        Через ~6 месяцев под нужды центрального проекта переквалифицировался в
+        Go-разработчика и был зачислен в штат как <strong>младший Go-разработчик</strong>.
+      </p>
+      <p>
+        За 2 года вырос до фактической роли <strong>тех-лида</strong> на флагманском
+        anti-drone проекте: с самого начала отвечал за архитектурные решения,
+        выбор стека, координацию с frontend-командой, подготовку сайзингов
+        инфраструктуры и выступал техническим экспертом на встречах с заказчиком.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== TECHLEAD ============================== -->
+  <section id="techlead" class="card">
+    <div class="section-head">Тех-лид ответственность</div>
+    <div class="resp-grid">
+      <div class="resp-item">
+        <div class="resp-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="resp-body">
+          <div class="resp-title">Архитектурные решения и выбор технологического стека</div>
+          Определяю паттерны (Ports &amp; Adapters, event-loop, state-machine),
+          обосновываю выбор языка, фреймворков, хранилищ и протоколов под
+          требования проекта.
+        </div>
+      </div>
+      <div class="resp-item">
+        <div class="resp-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg>
+        </div>
+        <div class="resp-body">
+          <div class="resp-title">Составление архитектурных документов</div>
+          Описываю компоненты, интерфейсы, data-flow, контракты между подсистемами.
+        </div>
+      </div>
+      <div class="resp-item">
+        <div class="resp-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="resp-body">
+          <div class="resp-title">Координация frontend-команды</div>
+          Формирую REST / WebSocket контракты, провожу ревью предложений,
+          синхронизирую frontend-roadmap с backend-разработкой.
+        </div>
+      </div>
+      <div class="resp-item">
+        <div class="resp-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        </div>
+        <div class="resp-body">
+          <div class="resp-title">Сайзинг инфраструктуры</div>
+          Расчёт CPU, RAM, network, disk, GPU для ML-компоненты под развёртывание
+          на объектах заказчика.
+        </div>
+      </div>
+      <div class="resp-item">
+        <div class="resp-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="resp-body">
+          <div class="resp-title">Пользовательская и техническая документация</div>
+          Инструкции для конечных пользователей системы на объектах, API-доки,
+          runbook'и для операторов.
+        </div>
+      </div>
+      <div class="resp-item">
+        <div class="resp-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="resp-body">
+          <div class="resp-title">Технический point-of-contact на встречах с заказчиком</div>
+          Презентую архитектурные решения, защищаю технические выборы, собираю
+          требования, отвечаю на вопросы по реализации.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PROJECTS HEAD ============================== -->
+  <div id="projects" class="section-head projects-head">Проекты в рамках Softline</div>
+
+  <!-- ============================== PROJECT 1: ANTI-DRONE ============================== -->
+  <article id="project-antidrone" class="card project-card">
+    <div class="project-header">
+      <div class="project-num">01</div>
+      <div class="project-title">Anti-Drone General Service<span class="project-flagship"> · flagship</span></div>
+    </div>
+    <div class="stack-chips">
+      <span class="chip">Go 1.25+</span>
+      <span class="chip">Python</span>
+      <span class="chip">WebSocket</span>
+      <span class="chip">CBOR</span>
+      <span class="chip">ONNX Runtime</span>
+      <span class="chip">Docker</span>
+      <span class="chip">Prometheus</span>
+      <span class="chip">ThingsBoard</span>
+    </div>
+    <div class="project-meta-small">2024 — настоящее время · ~44 000 LOC · 137 Go-файлов · 16 пакетов</div>
+    <div class="project-intro">
+      Real-time распределённая система детектирования, сопровождения и
+      автономного подавления БПЛА. Центральный координационный узел: приём
+      радарных данных, управление PTZ-камерами, оркестрация джаммеров,
+      интеграция с ML-сервисом классификации и IoT-платформой ThingsBoard.
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="done">Что сделано</button>
+      <button class="tab-btn" data-tab="challenges">Ключевые задачи и решения</button>
+    </div>
+    <div class="tab-panel done active" data-tab="done">
+      <ul>
+        <li>Спроектировал и реализовал <strong>модульный монолит по паттерну
+            Ports &amp; Adapters (hexagonal)</strong>: ~44 000 LOC, 137 Go-файлов,
+            43 test-файла, 16 внутренних пакетов —
+            <code>autoaim</code>, <code>tracking</code>, <code>storage</code>,
+            <code>ml</code>, <code>ws</code>, <code>diagnostics</code>,
+            <code>kalman</code>, <code>corridor</code>,
+            <code>camerapolygons</code>, <code>platform</code> и др.</li>
+        <li>Реализовал <strong>event-loop обработки радарных треков</strong> с
+            sub-millisecond latency через in-memory thread-safe stores
+            (<code>sync.RWMutex</code>, <code>sync.Map</code>,
+            <code>atomic</code>).</li>
+        <li>Разработал алгоритм <strong>назначения треков на башни</strong> на
+            основе scoring-функции (distance / availability / threat), и
+            state-machine jamming-последовательностей с anti-deadlock защитой
+            через rebalance history + cooldown.</li>
+        <li>Интегрировал <strong>ONNX ML-микросервис</strong> (Python / FastAPI
+            / CUDA) для классификации bird vs UAV по доплеровским спектрам —
+            async очередь, rate-limiting, frame-skip при перегрузке.</li>
+        <li>Реализовал <strong>WebSocket-клиент радарного фида</strong>
+            (JSON / CBOR через <code>fxamacker/cbor</code>), с auto-reconnect,
+            экспоненциальным backoff и watchdog на liveness main loop.</li>
+        <li>Разработал алгоритм <strong>Smooth Aim</strong>: грубое наведение
+            камеры по LLA-координатам цели + точная корректировка по CV
+            bounding box через P-controller в velocity-режиме.</li>
+        <li>Построил интеграцию с <strong>ThingsBoard IoT</strong>: JWT с
+            auto-refresh на 401-й ответ, debounce телеметрии (100–500 мс),
+            батчинг, alarms.</li>
+        <li>Настроил полный <strong>observability-стек</strong>: Prometheus
+            metrics, pprof endpoints (CPU / heap / goroutine / mutex / block),
+            структурированное <code>slog</code>-логирование, custom
+            speed / angle / data-loggers.</li>
+        <li>CI/CD: race-тесты, gosec / staticcheck SAST,
+            <strong>2-часовые stress-прогоны</strong>, multi-stage Docker
+            (~15 МБ).</li>
+        <li>Реализовал <strong>3D Kalman-фильтрацию</strong> траекторий,
+            point-in-polygon geo-fencing, camera FOV polygons для расчёта
+            покрытия.</li>
+      </ul>
+    </div>
+    <div class="tab-panel challenges" data-tab="challenges">
+      <details>
+        <summary><span class="warn-dot"></span>Sub-millisecond латентность на радарных событиях<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Радар присылает десятки треков с частотой до сотен Гц. Каждое
+            обновление должно пройти через фильтрацию, ассоциацию с существующими
+            треками, Kalman-шаг, классификацию угрозы и принятие решения о
+            наведении — всё за миллисекунды, иначе система отстаёт от реальности.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> полностью in-memory event-loop с
+            thread-safe stores на <code>sync.RWMutex</code> / <code>sync.Map</code>
+            / <code>atomic</code>; никакого I/O в горячем пути (БД, сеть, диск);
+            вычисления разнесены по воркерам с неблокирующими каналами; profiling
+            через <code>pprof</code> для поиска контеншна на локах.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Deadlock в state-machine jamming-последовательностей<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Состояние джаммеров переключается по событиям (цель обнаружена,
+            потеряна, пришла команда). При конкурирующих событиях system мог
+            зацикливаться в rebalance: джаммер A отдаёт цель джаммеру B, B
+            возвращает A, и так бесконечно.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> anti-deadlock защита через
+            <strong>rebalance history</strong> (не перекидывать цель туда, откуда
+            она только что пришла) + <strong>cooldown</strong> на повторные
+            переназначения. State-машина стала детерминированной, повторяющиеся
+            переходы исключены.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Конфликт Smooth Aim (LLA) с velocity-режимом (bbox)<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Smooth Aim наводит камеру по GPS-координатам цели (PointToGeo), а
+            корректировка по CV bbox — в velocity-режиме через P-controller. Обе
+            подсистемы параллельно шлют команды в PTZ-драйвер: velocity Move
+            перебивается устаревшим PointToGeo, камера уходит в GPS-target и
+            теряет bbox-захват. Тесты давали всего 1/5 пасс.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> ввёл проверку <strong>freshness bbox</strong>
+            на стороне anti-drone (в <code>executeSmoothAimStep</code> и
+            <code>startPointCommandWorker</code>): если bbox пришёл &lt;100 мс назад,
+            PointToGeo-команды подавляются. Независимо от флага
+            <code>BBoxAimEnabled</code> — убрал его из условия, потому что по
+            умолчанию он был <code>false</code> и не включался. После фикса:
+            стабильно <strong>5/5 test pass</strong>.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Watchdog main-loop liveness<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            В редких сценариях main loop радарного фида мог зависнуть на блокирующем
+            вызове (например, при split-brain состоянии сети) — процесс продолжал
+            работать, но треки переставали обрабатываться. Визуально сложно
+            отличить от «нет целей».
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> watchdog-горутина проверяет timestamp
+            последней итерации main loop каждые N секунд; если gap превышает
+            threshold — логирует критическую ошибку, инкрементирует Prometheus
+            метрику, триггерит alarm в ThingsBoard. Независимый reconnect на
+            WebSocket фид с экспоненциальным backoff.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Перегрузка ML-сервиса классификации<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            ONNX ensemble inference на GPU всё ещё занимает десятки мс на образец.
+            При всплесках (много целей в FOV одновременно) очередь на классификацию
+            росла, latency end-to-end уходила в секунды.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> async очередь с <strong>rate-limiting</strong>
+            перед ML-сервисом; при загрузке очереди &gt;80% включается
+            <strong>frame-skip</strong> (берём только каждую N-ю выборку); low-confidence
+            обновления дропаются; метрики queue depth и drop rate выведены в
+            Prometheus.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>ThingsBoard JWT истекает в середине сессии<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            ThingsBoard IoT отдаёт JWT с ограниченным TTL. На длительных прогонах
+            телеметрия внезапно переставала уходить — сервер возвращал 401, клиент
+            молча ошибался.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> собственный middleware-слой поверх HTTP-клиента:
+            перехватывает 401, автоматически рефрешит JWT через refresh-endpoint,
+            повторяет исходный запрос. Телеметрия дополнительно
+            <strong>debouncится</strong> (100–500 мс) и батчится, чтобы не
+            долбить ThingsBoard на каждое обновление.
+          </div>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============================== PROJECT 2: PTZ DRIVER ============================== -->
+  <article id="project-ptz" class="card project-card">
+    <div class="project-header">
+      <div class="project-num">02</div>
+      <div class="project-title">PTZ Camera Driver (Pelco-D)</div>
+    </div>
+    <div class="stack-chips">
+      <span class="chip">Go</span>
+      <span class="chip">Gin</span>
+      <span class="chip">TCP</span>
+      <span class="chip">Pelco-D</span>
+      <span class="chip">Docker</span>
+    </div>
+    <div class="project-meta-small">2024 — настоящее время · 60+ REST endpoints · собственный HIL-симулятор</div>
+    <div class="project-intro">
+      Production-grade драйвер PTZ-камер по протоколу Pelco-D с REST API и
+      собственным hardware-in-the-loop физическим симулятором. Используется
+      anti-drone сервисом для наведения камер на цели в реальном времени.
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="done">Что сделано</button>
+      <button class="tab-btn" data-tab="challenges">Ключевые задачи и решения</button>
+    </div>
+    <div class="tab-panel done active" data-tab="done">
+      <ul>
+        <li>Реализовал <strong>priority command queue</strong> на
+            <code>sync.Mutex</code> / <code>sync.Cond</code> с дедупликацией
+            <code>CommandPosition</code> / <code>Zoom</code> /
+            <code>Focus</code> и configurable worker pool.</li>
+        <li>Разработал <strong>waiter-pattern TCP dispatcher</strong> — регистрация
+            response-handlers <em>до</em> отправки команды предотвращает hijack
+            ответов в concurrent-сценариях.</li>
+        <li>Написал парсер и энкодер <strong>Pelco-D бинарного протокола</strong>
+            (7-байт стандарт + 15-байт extended), 60+ REST endpoints на Gin.</li>
+        <li>Реализовал <strong>P / PD-controller для velocity-режима</strong>
+            (<code>kP=200</code>, <code>deadzone=0.02</code>,
+            <code>maxSpeed=63</code>) + <strong>auto-stop</strong> через 300 мс
+            после последнего bbox.</li>
+        <li>Построил полную <strong>WGS-84 геодезическую цепочку</strong>:
+            LLA → ECEF → ENU + rotation matrices + tilt correction для
+            sub-degree наведения.</li>
+        <li>Написал <strong>hardware-in-the-loop симулятор камеры</strong>
+            (20 Hz физический tick, 113°/s pan, 38°/s tilt,
+            PTZ-protocol-aware), matching real hardware refresh rate.</li>
+        <li>Реализовал auto-reconnect TCP с backoff, relay-hardware reboot
+            trigger при offline, circuit breaker на угловые обновления.</li>
+        <li>Docker multi-stage build, graceful shutdown (10 с timeout),
+            async / sync режимы API, Prometheus метрики на все эндпоинты.</li>
+      </ul>
+    </div>
+    <div class="tab-panel challenges" data-tab="challenges">
+      <details>
+        <summary><span class="warn-dot"></span>Hijack TCP-ответов в concurrent-сценарии<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Pelco-D TCP-соединение — один сокет, через который идут команды и
+            приходят ответы от камеры. Если горутина A отправила команду, а
+            горутина B читает сокет, ответ A может попасть к B. Классический
+            response-hijack в асинхронном протоколе без встроенного correlation-id.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> <strong>waiter pattern</strong> — перед
+            отправкой команды горутина регистрирует свой channel в map
+            (<code>waiters[commandID] → chan Response</code>), затем отправляет
+            команду, затем ждёт свой канал. Отдельный reader-loop читает сокет,
+            парсит ответ, находит нужный waiter по command-id и кладёт ответ в
+            его канал. Никакой гонки, никакого hijack.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Velocity move перебивается устаревшими GPS-target командами<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            В velocity-режиме anti-drone шлёт десятки Move-команд в секунду
+            (корректировка по bbox). Параллельно сверху могут прилетать
+            PointToGeo (наведение по GPS-координатам цели). Если PointToGeo
+            попадает в очередь <em>после</em> Move — он перебивает активное
+            velocity-движение, камера «дёргается» на GPS-цель и теряет bbox.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> при enqueue <code>CommandMove</code> из
+            очереди удаляются все pending <code>CommandPosition</code> (с
+            <code>nil</code> callback, чтобы не сломать waiter'ы). Velocity-move
+            всегда «выигрывает» у устаревших GPS-target команд в рамках одной
+            очереди.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Race в auto-stop velocity-режима<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Auto-stop срабатывает через 300 мс после последнего bbox — отправляет
+            команду Stop. Но если в эти 300 мс приходит новый bbox, запускается
+            новый таймер, а старый таймер всё ещё может выстрелить и отправить
+            лишний Stop посреди нового движения.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> <strong>timer identity check</strong> —
+            каждый раз при рестарте таймера увеличивается generation-counter.
+            Когда таймер срабатывает, он сравнивает свой generation с текущим
+            под мьютексом, и только если совпало — отправляет Stop. Все предыдущие
+            таймеры молча умирают.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Снап-бек к GPS-цели после остановки velocity<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            После auto-stop velocity-движения камера снова начинала ехать к
+            последнему GPS-target — симулятор помнил «HasTarget = true» и тихо
+            продолжал следовать за виртуальной точкой.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> во всех 8 Move-командах (левая, правая,
+            верх, низ + 4 диагонали) и в <code>stopAllMovement()</code>
+            явно выставляется <code>HasTarget = false</code>. Любое velocity-движение
+            отменяет GPS-target режим. Snap-back исчез.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Hardware недоступен для разработки<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Реальная PTZ-камера стоит на объекте заказчика. Без доступа к железу
+            невозможно было отлаживать velocity-режим, проверять геодезические
+            преобразования и воспроизводить баги.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> написал <strong>hardware-in-the-loop
+            симулятор</strong> — отдельный бинарь на том же Pelco-D протоколе,
+            с физическим тиком 20 Hz (совпадает с hardware refresh rate),
+            правильными скоростями (113°/s pan, 38°/s tilt при
+            <code>speedByte=63</code>), аккуратным tilt-encoding
+            (<code>tilt &lt; 0 → PTZ = tilt + 360</code>). Вся разработка и
+            регрессионные тесты велись против симулятора.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Sub-degree наведение по GPS-координатам<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Anti-drone даёт цель в WGS-84 (широта, долгота, высота). Камера
+            стоит на отдельной GPS-точке, наклонена на площадке, имеет собственную
+            ориентацию. Нужно перевести координаты цели в azimuth / elevation
+            относительно камеры с точностью до долей градуса.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> реализовал полный геодезический пайплайн
+            <strong>LLA → ECEF → ENU</strong> (локальная система координат камеры)
+            + rotation matrices по установочной ориентации + tilt correction.
+            Отдельно — нормализация azimuth через модульную арифметику
+            (избегает багов на переходе 359° → 0°).
+          </div>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============================== PROJECT 3: INK-ML ============================== -->
+  <article id="project-ml" class="card project-card">
+    <div class="project-header">
+      <div class="project-num">03</div>
+      <div class="project-title">INK-ML Radar Classification Service</div>
+    </div>
+    <div class="stack-chips">
+      <span class="chip">Python 3.10</span>
+      <span class="chip">FastAPI</span>
+      <span class="chip">ONNX Runtime</span>
+      <span class="chip">CUDA</span>
+      <span class="chip">Docker</span>
+    </div>
+    <div class="project-meta-small">2024 — настоящее время</div>
+    <div class="project-intro">
+      Python-микросервис классификации радарных доплеровских спектров
+      (bird vs UAV), вызываемый из Go-сервиса Anti-Drone. Поддерживаю
+      параллельно основному Go-коду — опыт переквалификации из CV-стажёра
+      позволяет закрывать и ML-ops домен.
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="done">Что сделано</button>
+      <button class="tab-btn" data-tab="challenges">Ключевые задачи и решения</button>
+    </div>
+    <div class="tab-panel done active" data-tab="done">
+      <ul>
+        <li>FastAPI <code>/predict</code> endpoint для классификации
+            доплеровских спектров.</li>
+        <li><strong>Ensemble inference</strong> нескольких ONNX-моделей +
+            <strong>TTA</strong> (test-time augmentation: noise, shift, scale)
+            для повышения robustness.</li>
+        <li>Preprocessing pipeline: log-scaling, percentile clipping,
+            <strong>dB auto-detection</strong>, нормализация.</li>
+        <li><strong>Runtime config-reload</strong> без рестарта сервиса —
+            можно менять веса моделей и параметры препроцессинга на живом
+            продакшене.</li>
+        <li>CUDA inference с <strong>fallback на CPU</strong>.</li>
+        <li>Docker-образ на <code>nvidia/cuda:12.1.1-cudnn8</code> с GPU
+            passthrough.</li>
+      </ul>
+    </div>
+    <div class="tab-panel challenges" data-tab="challenges">
+      <details>
+        <summary><span class="warn-dot"></span>Входные спектры в разных форматах<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Радары разных производителей выдают доплеровские спектры в разных
+            шкалах — где-то это линейная мощность, где-то уже в dB. Модель,
+            обученная на dB, выдавала бесполезные предсказания при подаче
+            линейных данных, и наоборот.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> <strong>dB auto-detection</strong> в
+            препроцессинге — по распределению значений (статистики, диапазон)
+            определяется, в какой шкале пришли данные, и при необходимости
+            применяется log-scaling. Пайплайн стал устойчив к формату источника.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Overfitting одной модели<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Одиночная ONNX-модель давала высокую точность на валидации, но при
+            реальных условиях (шум, смещение, изменение масштаба спектра)
+            уверенность падала.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> <strong>ensemble</strong> из нескольких
+            моделей + <strong>TTA</strong>: к каждому входу применяется набор
+            аугментаций (noise, shift, scale), предсказания усредняются по
+            ансамблю и по TTA-вариантам. Confidence стала существенно выше и
+            стабильнее.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>CUDA недоступна / GPU не справляется<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            На некоторых объектах развёртывания GPU либо не было вообще, либо
+            временно становилась недоступна (сбой драйвера, перегрев, переключение
+            на CPU-only режим). Сервис полностью падал.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> <strong>fallback-стратегия</strong> на CPU —
+            при инициализации пробуем CUDA, при ошибке переключаемся на CPU-провайдер
+            ONNX Runtime. Сервис продолжает работать с увеличенной latency.
+            Факт fallback'а логируется и уходит в метрики.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Обновление моделей без downtime<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Исследовательская команда регулярно выкатывает новые версии моделей.
+            Перезапуск сервиса означал бы потерю классификации на несколько секунд
+            — неприемлемо для real-time системы.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> <strong>runtime config-reload</strong> —
+            подмена путей к ONNX-файлам и параметров препроцессинга по
+            watch-сигналу на конфиг; старый ансамбль остаётся активным пока
+            новый не прогрет, переключение — атомарно под мьютексом. Downtime = 0.
+          </div>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============================== PROJECT 4: TEST STAND ============================== -->
+  <article id="project-stand" class="card project-card">
+    <div class="project-header">
+      <div class="project-num">04</div>
+      <div class="project-title">Hardware Test Stand / Integration Testing</div>
+    </div>
+    <div class="stack-chips">
+      <span class="chip">Go</span>
+      <span class="chip">WebSocket</span>
+      <span class="chip">HTTP</span>
+      <span class="chip">bbox-tester</span>
+    </div>
+    <div class="project-meta-small">2024 — настоящее время · 4-terminal simulation stack</div>
+    <div class="project-intro">
+      Стенд для end-to-end тестирования всей радарно-камерной цепочки
+      <strong>без реального железа</strong>. Критичен для разработки и
+      регрессионной отладки без выезда на объект.
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="done">Что сделано</button>
+      <button class="tab-btn" data-tab="challenges">Ключевые задачи и решения</button>
+    </div>
+    <div class="tab-panel done active" data-tab="done">
+      <ul>
+        <li>Собрал <strong>4-terminal симуляционный стек</strong>:
+            <code>radar_sim → anti-drone → driver → camera_sim</code>.</li>
+        <li>Реализовал генерацию реалистичных радарных данных в формате Enot
+            (<code>range_step = 3.0 м</code>,
+            <code>speed_step = 0.7484 м/с</code>, CFAR, RCS).</li>
+        <li>Конфигурируемые источники, треки, тики, GPS-координаты сценариев.</li>
+        <li>Написал <code>bbox-tester</code> — отдельный тул, который
+            проигрывает фиксированные сценарии через anti-drone
+            <code>/api/bbox</code> и замеряет итоговую ориентацию камеры.</li>
+        <li>Нашёл и исправил <strong>7 критических багов</strong> в
+            velocity-режиме.</li>
+      </ul>
+    </div>
+    <div class="tab-panel challenges" data-tab="challenges">
+      <details>
+        <summary><span class="warn-dot"></span>Невозможно отлаживать velocity-режим на живом железе<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Камера стоит на объекте заказчика. Каждое изменение кода означало бы
+            релиз + поездку + живые замеры. Регрессии ловились только при приёмке.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> собран полноценный симуляционный стек из
+            4 компонентов, которые общаются по тем же протоколам, что и продакшен
+            (WebSocket для радара, HTTP для anti-drone API, Pelco-D TCP для
+            камеры). Любой velocity-сценарий воспроизводится локально за секунды.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Радарные данные нестабильны и нерепродуцируемы<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Запись реальных радарных сессий — дорого и неполно. Нужны были
+            синтетические данные, которые проходят валидацию anti-drone парсера
+            (формат Enot, корректные CFAR, RCS, range и speed steps) и при этом
+            воспроизводимы сценарий в сценарий.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> написал генератор радарных фреймов в
+            формате Enot с правильными физическими константами
+            (<code>range_step = 3.0 м</code>,
+            <code>speed_step = 0.7484 м/с</code>), валидными CFAR-порогами и
+            RCS-значениями. Сценарии описаны в JSON, полностью воспроизводимы.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>bbox-tester ловил только 1/5 сценариев<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Первоначальный запуск bbox-tester показывал пасс всего 1 из 5
+            сценариев. Падения были разнородные: где-то snap-back к GPS-цели,
+            где-то «+1.89° tilt» после остановки, где-то
+            <code>Δaz = +309°</code> (обход через весь круг).
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> системно диагностировал каждый случай и
+            закрыл <strong>7 корневых причин</strong>:
+            <ul>
+              <li><strong>Конфликт smooth-aim PointToGeo с P-controller velocity-moves</strong>
+                  — убран gate <code>BBoxAimEnabled</code> из bbox-freshness
+                  проверки (в <code>executeSmoothAimStep</code> и
+                  <code>startPointCommandWorker</code>).</li>
+              <li><strong>Race в <code>resetVelocityAutoStop</code></strong> —
+                  Stop теперь отправляется только при совпадении timer identity под
+                  мьютексом.</li>
+              <li><strong>Snap-back к GPS-target</strong> — во все Move-команды и
+                  <code>stopAllMovement()</code> добавлен
+                  <code>HasTarget = false</code>.</li>
+              <li><strong>Стале PointToGeo после первого bbox</strong> — в
+                  <code>Enqueue()</code> при добавлении <code>CommandMove</code>
+                  все pending <code>CommandPosition</code> удаляются из очереди.</li>
+              <li><strong>Дефолты конфига</strong> —
+                  <code>BBoxTimeout = 40 с</code> по умолчанию, если
+                  <code>BBOX_TIMEOUT_SEC</code> не задан.</li>
+              <li><strong>Pointing manager на радарных апдейтах</strong> —
+                  <code>pointTowerToNewRadarPointUnsafe</code> тоже проверяет
+                  bbox-freshness; подавление PointToGeo не зависит от
+                  <code>BBoxAimEnabled</code>.</li>
+              <li><strong>Azimuth wrap</strong> в bbox-tester — <code>normAngle</code>
+                  оборачивает дельту в <code>[-180, 180]</code>, исправив
+                  <code>Δaz = +309°</code> на <code>-51°</code>.</li>
+            </ul>
+            <div class="post-note">
+              После всех фиксов — стабильно <strong>5/5 test pass</strong> на
+              десятках повторных прогонов.
+            </div>
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Сценарии ломались при смене разрешения<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Первая версия сценариев задавала bbox в пикселях для фиксированного
+            разрешения 1920×1080. При смене камеры (другое разрешение) вся
+            калибровка слетала.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> переписал сценарии на <strong>фрактальные
+            координаты <code>[0..1]</code></strong> относительно фрейма. Ширина /
+            высота теперь передаются флагами <code>-width</code> / <code>-height</code>,
+            координаты корректно масштабируются. Один набор сценариев работает
+            на любом разрешении.
+          </div>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============================== SKILLS ============================== -->
+  <section id="skills" class="card">
+    <div class="section-head">Технические навыки</div>
+    <div class="skills-grid">
+
+      <div class="skill-cat">
+        <div class="skill-title">Языки и ядро</div>
+        <div class="tag-list">
+          <span class="tag">Go 1.25+</span>
+          <span class="tag">goroutines</span>
+          <span class="tag">channels</span>
+          <span class="tag">sync.Mutex / RWMutex</span>
+          <span class="tag">sync.Cond</span>
+          <span class="tag">sync.Map</span>
+          <span class="tag">atomic</span>
+          <span class="tag">context</span>
+          <span class="tag">pprof</span>
+          <span class="tag">race detector</span>
+          <span class="tag">escape analysis</span>
+          <span class="tag">Python 3.10</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">ONNX Runtime</span>
+          <span class="tag">numpy</span>
+          <span class="tag">preprocessing pipelines</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-title">Архитектура</div>
+        <div class="tag-list">
+          <span class="tag">Ports &amp; Adapters (hexagonal)</span>
+          <span class="tag">event-loop</span>
+          <span class="tag">worker pool</span>
+          <span class="tag">priority queue + dedup</span>
+          <span class="tag">circuit breaker</span>
+          <span class="tag">waiter pattern</span>
+          <span class="tag">state-machine</span>
+          <span class="tag">dependency injection</span>
+          <span class="tag">graceful shutdown</span>
+          <span class="tag">anti-deadlock (rebalance history + cooldown)</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-title">Сеть / протоколы</div>
+        <div class="tag-list">
+          <span class="tag">HTTP REST</span>
+          <span class="tag">Gin</span>
+          <span class="tag">net/http</span>
+          <span class="tag">resty</span>
+          <span class="tag">WebSocket</span>
+          <span class="tag">gorilla/websocket</span>
+          <span class="tag">auto-reconnect + backoff</span>
+          <span class="tag">TCP (custom protocol parsing)</span>
+          <span class="tag">waiter-pattern dispatcher</span>
+          <span class="tag">Pelco-D (7-byte + 15-byte extended)</span>
+          <span class="tag">JSON</span>
+          <span class="tag">CBOR (fxamacker/cbor)</span>
+          <span class="tag">Protocol Buffers</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-title">Observability</div>
+        <div class="tag-list">
+          <span class="tag">Prometheus (client_golang)</span>
+          <span class="tag">metrics / histograms / summaries</span>
+          <span class="tag">pprof</span>
+          <span class="tag">CPU / heap / goroutine / mutex / block profiling</span>
+          <span class="tag">log/slog</span>
+          <span class="tag">structured logging</span>
+          <span class="tag">CSV / JSON telemetry loggers</span>
+          <span class="tag">health checks</span>
+          <span class="tag">watchdog</span>
+          <span class="tag">deadlock detection</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-title">Инфраструктура</div>
+        <div class="tag-list">
+          <span class="tag">Docker multi-stage (~15 МБ)</span>
+          <span class="tag">golang:alpine → alpine</span>
+          <span class="tag">Docker Compose</span>
+          <span class="tag">GPU passthrough (nvidia/cuda)</span>
+          <span class="tag">GitLab CI/CD</span>
+          <span class="tag">unit + race</span>
+          <span class="tag">gosec</span>
+          <span class="tag">staticcheck</span>
+          <span class="tag">2-часовые stress-прогоны</span>
+          <span class="tag">Viper</span>
+          <span class="tag">ENV config</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-title">Тестирование</div>
+        <div class="tag-list">
+          <span class="tag">Unit (-race)</span>
+          <span class="tag">integration</span>
+          <span class="tag">chaos / fault-injection</span>
+          <span class="tag">load / stress (2h прогоны)</span>
+          <span class="tag">SAST (gosec, staticcheck)</span>
+          <span class="tag">HIL симуляторы (20 Hz физика)</span>
+          <span class="tag">регрессионные тулы на сценарии</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-title">Domain / математика</div>
+        <div class="tag-list">
+          <span class="tag">WGS-84 геодезия</span>
+          <span class="tag">LLA ↔ ECEF ↔ ENU</span>
+          <span class="tag">rotation matrices</span>
+          <span class="tag">tilt correction</span>
+          <span class="tag">3D Kalman filter</span>
+          <span class="tag">point-in-polygon geo-fencing</span>
+          <span class="tag">camera FOV polygons</span>
+          <span class="tag">P / PD-контроллеры</span>
+          <span class="tag">координатные преобразования</span>
+          <span class="tag">нормализация азимута</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-title">ML-ops</div>
+        <div class="tag-list">
+          <span class="tag">ONNX Runtime (GPU CUDA)</span>
+          <span class="tag">FastAPI-микросервис</span>
+          <span class="tag">ensemble inference</span>
+          <span class="tag">TTA (test-time augmentation)</span>
+          <span class="tag">log-scale</span>
+          <span class="tag">percentile clip</span>
+          <span class="tag">dB auto-detect</span>
+          <span class="tag">runtime config-reload</span>
+          <span class="tag">CUDA → CPU fallback</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== EDUCATION ============================== -->
+  <section id="education" class="card">
+    <div class="section-head">Образование</div>
+    <div class="edu-row">
+      <div class="edu-icon">МП</div>
+      <div class="edu-body">
+        <div class="edu-name">Московский политехнический университет</div>
+        <div class="edu-desc">Бакалавриат · Прикладная математика и информатика</div>
+      </div>
+      <div class="edu-period">2022 — 2026</div>
+    </div>
+    <div class="diploma">
+      <strong>Тема диплома:</strong> «Разработка нейросетевого сервиса для
+      детекции беспилотных летательных аппаратов и птиц с последующей интеграцией
+      в системы защиты наземных объектов, включая транспортные средства».
+    </div>
+    <div class="sub-head">Дополнительное образование</div>
+    <ul class="prose-list">
+      <li><strong>Samsung IT School</strong> — школьные курсы по разработке
+          мобильных приложений (Android).</li>
+      <li>Android-разработка — самостоятельно в старших классах, до поступления
+          в ВУЗ.</li>
+      <li>Самообразование — профессиональная литература по Go, concurrency,
+          distributed systems, software architecture.</li>
+    </ul>
+  </section>
+
+  <!-- ============================== SOFT SKILLS ============================== -->
+  <section id="softskills" class="card">
+    <div class="section-head">Софт скиллы</div>
+    <div class="soft-list">
+      <div class="soft-item">
+        <div class="soft-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="soft-body">
+          <div class="soft-title">Deep ownership</div>
+          <div class="soft-desc">От стажёра до тех-лида за 2 года в одной компании, закрываю все домены проекта (Go, Python/ML, hardware, infra).</div>
+        </div>
+      </div>
+      <div class="soft-item">
+        <div class="soft-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="soft-body">
+          <div class="soft-title">Системный дебаг</div>
+          <div class="soft-desc">Диагностика race conditions, deadlock'ов, распределённых проблем (пример: 7 критических багов в velocity-режиме anti-drone, найдены и закрыты).</div>
+        </div>
+      </div>
+      <div class="soft-item">
+        <div class="soft-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="soft-body">
+          <div class="soft-title">Self-starter</div>
+          <div class="soft-desc">Переквалификация CV → Go под задачи проекта по собственной инициативе.</div>
+        </div>
+      </div>
+      <div class="soft-item">
+        <div class="soft-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="soft-body">
+          <div class="soft-title">Внимание к деталям</div>
+          <div class="soft-desc">Sub-degree наведение, sub-millisecond latency, точные геодезические преобразования.</div>
+        </div>
+      </div>
+      <div class="soft-item">
+        <div class="soft-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="soft-body">
+          <div class="soft-title">Преданность делу, трудолюбие</div>
+          <div class="soft-desc">Стабильно выдерживаю длинные циклы погружения в сложные задачи.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== LANGUAGES ============================== -->
+  <section id="languages" class="card">
+    <div class="section-head">Языки</div>
+    <div class="lang-list">
+      <div class="lang-item">
+        <div class="lang-name">Русский</div>
+        <div class="lang-level">родной</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">English</div>
+        <div class="lang-level">B1 · свободно читаю техдокументацию</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<button class="back-to-top" aria-label="Наверх" type="button">↑</button>
+
+<script>
+(function () {
+  // ---------- Reading progress bar ----------
+  var bar = document.querySelector('.progress-bar');
+  function updateBar() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = max > 0 ? (window.scrollY / max * 100) + '%' : '0%';
+  }
+  window.addEventListener('scroll', function () {
+    requestAnimationFrame(updateBar);
+  }, { passive: true });
+  window.addEventListener('resize', updateBar);
+  updateBar();
+
+  // ---------- Scroll-spy TOC ----------
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+  var targets = [];
+  navLinks.forEach(function (link) {
+    var id = link.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (el) targets.push({ el: el, link: link });
+  });
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var match = targets.find(function (t) { return t.el === entry.target; });
+        if (!match) return;
+        navLinks.forEach(function (l) { l.classList.remove('active'); });
+        match.link.classList.add('active');
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    targets.forEach(function (t) { observer.observe(t.el); });
+  }
+
+  // ---------- Project tabs ----------
+  document.querySelectorAll('.project-card').forEach(function (card) {
+    var btns = card.querySelectorAll('.tab-btn');
+    var panels = card.querySelectorAll('.tab-panel');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var tab = btn.dataset.tab;
+        btns.forEach(function (b) { b.classList.toggle('active', b === btn); });
+        panels.forEach(function (p) { p.classList.toggle('active', p.dataset.tab === tab); });
+      });
+    });
+  });
+
+  // ---------- Back to top ----------
+  var btn = document.querySelector('.back-to-top');
+  window.addEventListener('scroll', function () {
+    btn.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ---------- Print: open all <details> ----------
+  window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('details').forEach(function (d) {
+      d.dataset.prevOpen = d.open ? '1' : '0';
+      d.open = true;
+    });
+  });
+  window.addEventListener('afterprint', function () {
+    document.querySelectorAll('details').forEach(function (d) {
+      d.open = d.dataset.prevOpen === '1';
+      delete d.dataset.prevOpen;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
