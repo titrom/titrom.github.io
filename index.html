@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Полх Тимофей Александрович — Полное резюме</title>
+<meta name="description" content="Полх Тимофей — Middle Go Developer / Tech Lead (de facto). Real-time распределённые системы, anti-drone, PTZ, ML-ops.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Полх Тимофей — Middle Go Developer / Tech Lead">
+<meta property="og:description" content="Real-time распределённые системы · anti-drone · PTZ (Pelco-D) · ML-ops · Tech Lead (de facto).">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Полх Тимофей — Middle Go Developer / Tech Lead">
+<meta name="twitter:description" content="Real-time распределённые системы · anti-drone · PTZ (Pelco-D) · ML-ops.">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%232563eb"/><text x="32" y="43" font-family="JetBrains Mono, monospace" font-size="30" font-weight="700" fill="white" text-anchor="middle">ПТ</text></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -487,12 +496,41 @@
   .tab-panel.active { display: block; }
 
   .tab-panel.done ul {
-    padding-left: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .tab-panel.done ul li {
+    position: relative;
+    padding: 13px 16px 13px 46px;
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
     font-size: 9.8pt;
     color: var(--text-dim);
-    line-height: 1.65;
+    line-height: 1.6;
+    transition: transform 0.15s ease, box-shadow 0.15s ease,
+                border-color 0.15s ease, background 0.15s ease;
   }
-  .tab-panel.done ul li { margin-bottom: 6px; }
+  .tab-panel.done ul li::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--tag-bg) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat;
+    box-shadow: 0 0 0 3px rgba(16,185,129,0.12);
+  }
+  .tab-panel.done ul li:hover {
+    border-color: var(--border-strong);
+    background: var(--card);
+    transform: translateX(2px);
+    box-shadow: var(--shadow-sm);
+  }
   .tab-panel.done ul li strong { color: var(--text); }
 
   /* ---------- Challenge details ---------- */
@@ -829,6 +867,76 @@
     .back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
   }
 
+  /* ---------- Status pill ---------- */
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 5px 12px; margin-bottom: 14px;
+    background: rgba(16,185,129,0.10);
+    border: 1px solid rgba(16,185,129,0.35);
+    border-radius: 999px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9pt; font-weight: 600;
+    color: #047857;
+  }
+  .status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--tag-bg);
+    box-shadow: 0 0 0 3px rgba(16,185,129,0.18);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 3px rgba(16,185,129,0.18); }
+    50%     { box-shadow: 0 0 0 5px rgba(16,185,129,0.08); }
+  }
+
+  /* ---------- Scroll-triggered reveal ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .35s ease-out, transform .35s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ---------- Skill filter ---------- */
+  .tag[data-filter] { cursor: pointer; }
+  .tag[data-filter].active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  .project-card.dimmed {
+    opacity: 0.35;
+    filter: grayscale(30%);
+  }
+  .project-card.match {
+    box-shadow: 0 0 0 2px var(--accent), var(--shadow-sm);
+  }
+  .project-card.dimmed,
+  .project-card.match {
+    transition: opacity .25s, box-shadow .25s, filter .25s;
+  }
+
+  .filter-clear {
+    display: none;
+    margin-left: 12px;
+    padding: 4px 10px;
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9pt; font-weight: 500;
+    color: var(--text-dim);
+    cursor: pointer;
+  }
+  .filter-clear.visible { display: inline-block; }
+  .filter-clear:hover { color: var(--text); border-color: var(--border-strong); }
+
   /* ---------- Print ---------- */
   @media print {
     body { background: #fff; font-size: 10pt; }
@@ -859,6 +967,23 @@
     .hero-name { font-size: 22pt; }
     .projects-head { margin-top: 12px !important; }
     a { color: var(--text); }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .project-card.dimmed { opacity: 1 !important; filter: none !important; }
+    .project-card.match { box-shadow: none !important; }
+    .filter-clear { display: none !important; }
+    .tab-panel.done ul li {
+      background: #fff !important;
+      border: none !important;
+      padding: 4px 0 4px 22px !important;
+      break-inside: avoid;
+    }
+    .tab-panel.done ul li::before {
+      left: 4px; top: 9px;
+      width: 8px; height: 8px;
+      background: #000 !important;
+      box-shadow: none !important;
+    }
+    .tab-panel.done ul { gap: 4px !important; }
   }
   @page { size: A4; margin: 12mm; }
 </style>
@@ -896,6 +1021,11 @@
 
   <!-- ============================== HERO ============================== -->
   <section id="hero" class="card hero-card">
+    <!-- TODO: finalize status text -->
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      <span>Open to work · Middle/Senior Go · Москва / гибрид / удалёнка</span>
+    </div>
     <h1 class="hero-name">Полх Тимофей Александрович</h1>
     <div class="hero-role">Middle → Senior Go Developer / Backend Engineer · Tech Lead (de facto)</div>
     <div class="hero-contacts">
@@ -914,6 +1044,10 @@
       <a class="contact" href="https://t.me/titrom101">
         <svg viewBox="0 0 24 24"><path d="M21.5 4.5L2.5 12.5l6 2 2 6 3-4 5 4 3-16z"/></svg>
         @titrom101
+      </a>
+      <a class="contact" href="https://github.com/titrom">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.84-2.34 4.69-4.57 4.94.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+        github.com/titrom
       </a>
     </div>
     <div class="stats-grid">
@@ -1073,10 +1207,10 @@
   </section>
 
   <!-- ============================== PROJECTS HEAD ============================== -->
-  <div id="projects" class="section-head projects-head">Проекты в рамках Softline</div>
+  <div id="projects" class="section-head projects-head">Проекты в рамках Softline<button class="filter-clear" type="button">× сбросить фильтр</button></div>
 
   <!-- ============================== PROJECT 1: ANTI-DRONE ============================== -->
-  <article id="project-antidrone" class="card project-card">
+  <article id="project-antidrone" class="card project-card" data-tech="go python websocket cbor onnx docker prometheus slog pprof hexagonal cuda thingsboard kalman">
     <div class="project-header">
       <div class="project-num">01</div>
       <div class="project-title">Anti-Drone General Service<span class="project-flagship"> · flagship</span></div>
@@ -1257,7 +1391,7 @@
   </article>
 
   <!-- ============================== PROJECT 2: PTZ DRIVER ============================== -->
-  <article id="project-ptz" class="card project-card">
+  <article id="project-ptz" class="card project-card" data-tech="go gin tcp pelco-d docker prometheus wgs84">
     <div class="project-header">
       <div class="project-num">02</div>
       <div class="project-title">PTZ Camera Driver (Pelco-D)</div>
@@ -1420,7 +1554,7 @@
   </article>
 
   <!-- ============================== PROJECT 3: INK-ML ============================== -->
-  <article id="project-ml" class="card project-card">
+  <article id="project-ml" class="card project-card" data-tech="python fastapi onnx cuda docker">
     <div class="project-header">
       <div class="project-num">03</div>
       <div class="project-title">INK-ML Radar Classification Service</div>
@@ -1531,7 +1665,7 @@
   </article>
 
   <!-- ============================== PROJECT 4: TEST STAND ============================== -->
-  <article id="project-stand" class="card project-card">
+  <article id="project-stand" class="card project-card" data-tech="go websocket http">
     <div class="project-header">
       <div class="project-num">04</div>
       <div class="project-title">Hardware Test Stand / Integration Testing</div>
@@ -1673,7 +1807,7 @@
       <div class="skill-cat">
         <div class="skill-title">Языки и ядро</div>
         <div class="tag-list">
-          <span class="tag">Go 1.25+</span>
+          <span class="tag" data-filter="go">Go 1.25+</span>
           <span class="tag">goroutines</span>
           <span class="tag">channels</span>
           <span class="tag">sync.Mutex / RWMutex</span>
@@ -1681,12 +1815,12 @@
           <span class="tag">sync.Map</span>
           <span class="tag">atomic</span>
           <span class="tag">context</span>
-          <span class="tag">pprof</span>
+          <span class="tag" data-filter="pprof">pprof</span>
           <span class="tag">race detector</span>
           <span class="tag">escape analysis</span>
-          <span class="tag">Python 3.10</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">ONNX Runtime</span>
+          <span class="tag" data-filter="python">Python 3.10</span>
+          <span class="tag" data-filter="fastapi">FastAPI</span>
+          <span class="tag" data-filter="onnx">ONNX Runtime</span>
           <span class="tag">numpy</span>
           <span class="tag">preprocessing pipelines</span>
         </div>
@@ -1695,7 +1829,7 @@
       <div class="skill-cat">
         <div class="skill-title">Архитектура</div>
         <div class="tag-list">
-          <span class="tag">Ports &amp; Adapters (hexagonal)</span>
+          <span class="tag" data-filter="hexagonal">Ports &amp; Adapters (hexagonal)</span>
           <span class="tag">event-loop</span>
           <span class="tag">worker pool</span>
           <span class="tag">priority queue + dedup</span>
@@ -1712,17 +1846,17 @@
         <div class="skill-title">Сеть / протоколы</div>
         <div class="tag-list">
           <span class="tag">HTTP REST</span>
-          <span class="tag">Gin</span>
-          <span class="tag">net/http</span>
+          <span class="tag" data-filter="gin">Gin</span>
+          <span class="tag" data-filter="http">net/http</span>
           <span class="tag">resty</span>
-          <span class="tag">WebSocket</span>
-          <span class="tag">gorilla/websocket</span>
+          <span class="tag" data-filter="websocket">WebSocket</span>
+          <span class="tag" data-filter="websocket">gorilla/websocket</span>
           <span class="tag">auto-reconnect + backoff</span>
-          <span class="tag">TCP (custom protocol parsing)</span>
+          <span class="tag" data-filter="tcp">TCP (custom protocol parsing)</span>
           <span class="tag">waiter-pattern dispatcher</span>
-          <span class="tag">Pelco-D (7-byte + 15-byte extended)</span>
+          <span class="tag" data-filter="pelco-d">Pelco-D (7-byte + 15-byte extended)</span>
           <span class="tag">JSON</span>
-          <span class="tag">CBOR (fxamacker/cbor)</span>
+          <span class="tag" data-filter="cbor">CBOR (fxamacker/cbor)</span>
           <span class="tag">Protocol Buffers</span>
         </div>
       </div>
@@ -1730,11 +1864,11 @@
       <div class="skill-cat">
         <div class="skill-title">Observability</div>
         <div class="tag-list">
-          <span class="tag">Prometheus (client_golang)</span>
+          <span class="tag" data-filter="prometheus">Prometheus (client_golang)</span>
           <span class="tag">metrics / histograms / summaries</span>
-          <span class="tag">pprof</span>
+          <span class="tag" data-filter="pprof">pprof</span>
           <span class="tag">CPU / heap / goroutine / mutex / block profiling</span>
-          <span class="tag">log/slog</span>
+          <span class="tag" data-filter="slog">log/slog</span>
           <span class="tag">structured logging</span>
           <span class="tag">CSV / JSON telemetry loggers</span>
           <span class="tag">health checks</span>
@@ -1746,10 +1880,10 @@
       <div class="skill-cat">
         <div class="skill-title">Инфраструктура</div>
         <div class="tag-list">
-          <span class="tag">Docker multi-stage (~15 МБ)</span>
+          <span class="tag" data-filter="docker">Docker multi-stage (~15 МБ)</span>
           <span class="tag">golang:alpine → alpine</span>
-          <span class="tag">Docker Compose</span>
-          <span class="tag">GPU passthrough (nvidia/cuda)</span>
+          <span class="tag" data-filter="docker">Docker Compose</span>
+          <span class="tag" data-filter="cuda">GPU passthrough (nvidia/cuda)</span>
           <span class="tag">GitLab CI/CD</span>
           <span class="tag">unit + race</span>
           <span class="tag">gosec</span>
@@ -1776,11 +1910,11 @@
       <div class="skill-cat">
         <div class="skill-title">Domain / математика</div>
         <div class="tag-list">
-          <span class="tag">WGS-84 геодезия</span>
+          <span class="tag" data-filter="wgs84">WGS-84 геодезия</span>
           <span class="tag">LLA ↔ ECEF ↔ ENU</span>
           <span class="tag">rotation matrices</span>
           <span class="tag">tilt correction</span>
-          <span class="tag">3D Kalman filter</span>
+          <span class="tag" data-filter="kalman">3D Kalman filter</span>
           <span class="tag">point-in-polygon geo-fencing</span>
           <span class="tag">camera FOV polygons</span>
           <span class="tag">P / PD-контроллеры</span>
@@ -1792,7 +1926,7 @@
       <div class="skill-cat">
         <div class="skill-title">ML-ops</div>
         <div class="tag-list">
-          <span class="tag">ONNX Runtime (GPU CUDA)</span>
+          <span class="tag" data-filter="onnx">ONNX Runtime (GPU CUDA)</span>
           <span class="tag">FastAPI-микросервис</span>
           <span class="tag">ensemble inference</span>
           <span class="tag">TTA (test-time augmentation)</span>
@@ -1800,7 +1934,7 @@
           <span class="tag">percentile clip</span>
           <span class="tag">dB auto-detect</span>
           <span class="tag">runtime config-reload</span>
-          <span class="tag">CUDA → CPU fallback</span>
+          <span class="tag" data-filter="cuda">CUDA → CPU fallback</span>
         </div>
       </div>
 
@@ -1975,6 +2109,66 @@
       d.open = d.dataset.prevOpen === '1';
       delete d.dataset.prevOpen;
     });
+  });
+
+  // ---------- Scroll-triggered card reveal ----------
+  if ('IntersectionObserver' in window &&
+      window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    var reveals = document.querySelectorAll('.content .card:not(#hero), .content .project-card');
+    reveals.forEach(function (el) { el.classList.add('reveal'); });
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    reveals.forEach(function (el) { revealObs.observe(el); });
+  }
+
+  // ---------- Skill filter by tag click ----------
+  var activeFilter = null;
+  var filterableTags = document.querySelectorAll('.tag[data-filter]');
+  var projectCards = document.querySelectorAll('.project-card');
+  var clearBtn = document.querySelector('.filter-clear');
+
+  function applyFilter(slug) {
+    activeFilter = slug;
+    filterableTags.forEach(function (t) {
+      t.classList.toggle('active', t.dataset.filter === slug);
+    });
+    projectCards.forEach(function (card) {
+      var techs = (card.dataset.tech || '').split(/\s+/);
+      var match = techs.indexOf(slug) !== -1;
+      card.classList.toggle('match', match);
+      card.classList.toggle('dimmed', !match);
+    });
+    if (clearBtn) clearBtn.classList.add('visible');
+    var head = document.getElementById('projects');
+    if (head) head.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function clearFilter() {
+    activeFilter = null;
+    filterableTags.forEach(function (t) { t.classList.remove('active'); });
+    projectCards.forEach(function (card) {
+      card.classList.remove('match');
+      card.classList.remove('dimmed');
+    });
+    if (clearBtn) clearBtn.classList.remove('visible');
+  }
+
+  filterableTags.forEach(function (tag) {
+    tag.addEventListener('click', function () {
+      var slug = tag.dataset.filter;
+      if (activeFilter === slug) clearFilter();
+      else applyFilter(slug);
+    });
+  });
+  if (clearBtn) clearBtn.addEventListener('click', clearFilter);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && activeFilter) clearFilter();
   });
 })();
 </script>
