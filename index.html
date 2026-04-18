@@ -102,16 +102,23 @@
   }
 
   .sidebar-avatar {
-    width: 68px; height: 68px;
+    width: 120px; height: 120px;
     border-radius: 50%;
-    margin: 0 auto 12px;
+    margin: 0 auto 14px;
     background: var(--card-alt);
-    border: 1.5px solid var(--accent);
+    border: 2px solid var(--accent);
     display: flex;
     align-items: center; justify-content: center;
     font-family: "JetBrains Mono", monospace;
-    font-size: 22px; font-weight: 700;
+    font-size: 36px; font-weight: 700;
     color: var(--text); letter-spacing: -1px;
+    overflow: hidden;
+    position: relative;
+  }
+  .sidebar-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .sidebar-name {
@@ -1020,7 +1027,9 @@
 
 <aside class="sidebar">
   <div class="sidebar-identity">
-    <div class="sidebar-avatar">ПТ</div>
+    <div class="sidebar-avatar">
+      <img src="avatar.jpg" alt="Полх Тимофей" onerror="this.remove();this.parentNode.textContent='ПТ';">
+    </div>
     <div class="sidebar-name">Полх Тимофей<br>Александрович</div>
     <div class="sidebar-role">
       <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -1036,6 +1045,8 @@
     <a class="nav-link nav-sub" href="#project-ptz">— PTZ Driver (Pelco-D)</a>
     <a class="nav-link nav-sub" href="#project-ml">— INK-ML Classification</a>
     <a class="nav-link nav-sub" href="#project-stand">— Hardware Test Stand</a>
+    <a class="nav-link" href="#personal">Личные проекты</a>
+    <a class="nav-link nav-sub" href="#project-rmouse">— rmouse (shared mouse/kbd)</a>
     <a class="nav-link" href="#skills">Технические навыки</a>
     <a class="nav-link" href="#education">Образование</a>
     <a class="nav-link" href="#softskills">Софт скиллы</a>
@@ -1308,6 +1319,21 @@
         <li>Реализовал <strong>3D Kalman-фильтрацию</strong> траекторий,
             point-in-polygon geo-fencing, camera FOV polygons для расчёта
             покрытия.</li>
+        <li>Спроектировал и реализовал <strong>встроенный веб-dashboard</strong>
+            (<code>internal/dashboard</code>, отдельный HTTP-порт, embed-статика):
+            real-time просмотр активных треков, состояния джаммеров и
+            режимов работы, история ошибок из <code>error_log.json</code>,
+            агрегированная статистика драйверов (<code>driver_stats_logger</code>),
+            лог переключений режимов (<code>mode_logger</code>) — операторам не
+            нужен отдельный Grafana/Kibana для повседневной диагностики.</li>
+        <li>Выстроил <strong>систематический сбор данных для улучшения
+            алгоритмов</strong>: на ключевых decision-points (tracking, autoaim,
+            jammer-assignment, ML-classification) пишу структурированные
+            события с correlation-ID, решающими признаками и выбранной ветвью.
+            Собранные логи прогоняются офлайн → находим пограничные случаи →
+            правим пороги / scoring / Kalman-параметры. Каждый инцидент с
+            объекта превращается в датасет, по которому регрессионно проверяется
+            фикс.</li>
       </ul>
     </div>
     <div class="tab-panel challenges" data-tab="challenges">
@@ -1826,6 +1852,146 @@
             высота теперь передаются флагами <code>-width</code> / <code>-height</code>,
             координаты корректно масштабируются. Один набор сценариев работает
             на любом разрешении.
+          </div>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============================== PERSONAL PROJECTS ============================== -->
+  <div id="personal" class="section-head projects-head">Личные проекты</div>
+
+  <article id="project-rmouse" class="card project-card" data-tech="go wails winapi x11 evdev uinput xtest tls websocket">
+    <div class="project-header">
+      <div class="project-num">05</div>
+      <div class="project-title">rmouse — кросс-ОС shared mouse/keyboard</div>
+    </div>
+    <div class="stack-chips">
+      <span class="chip">Go 1.25+</span>
+      <span class="chip">Wails (GUI)</span>
+      <span class="chip">WinAPI hooks</span>
+      <span class="chip">X11 / evdev / uinput</span>
+      <span class="chip">XTest</span>
+      <span class="chip">TLS 1.3</span>
+    </div>
+    <div class="project-meta-small">2025 · pet-project · <a href="https://github.com/titrom/rmouse" target="_blank" rel="noopener">github.com/titrom/rmouse</a></div>
+    <div class="project-intro">
+      Go-утилита для объединения нескольких компьютеров в одно рабочее
+      пространство: одна физическая мышь и клавиатура управляют всеми
+      машинами, курсор перетекает с экрана на экран при пересечении
+      границы. Аналог Synergy / Barrier / Mouse Without Borders.
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="done">Что сделано</button>
+      <button class="tab-btn" data-tab="challenges">Ключевые задачи и решения</button>
+    </div>
+    <div class="tab-panel done active" data-tab="done">
+      <ul>
+        <li>Спроектировал <strong>клиент-серверную архитектуру</strong>
+            (1 сервер + N клиентов) с опциональным <strong>relay</strong>-узлом
+            для NAT/CGNAT-сценариев. Транспорт — <strong>TLS 1.3 с
+            pre-shared pairing token</strong>, relay видит только
+            зашифрованный трафик (end-to-end).</li>
+        <li>Реализовал <strong>платформенные адаптеры захвата/инжекта ввода</strong>:
+            на Windows — low-level WinAPI hooks + <code>SendInput</code>; на
+            Linux/X11 — <code>/dev/uinput</code> capture + XTest injection.
+            Кроссплатформенная CLI-сборка, GUI через Wails.</li>
+        <li>Построил <strong>GUI-сервер с drag-and-drop расстановкой клиентов</strong>
+            на визуальной сетке вокруг физических мониторов: snap-to-grid с
+            конфигурируемым шагом, <strong>ring-search при коллизиях</strong>,
+            halo-подсказки валидных позиций, ghost rect при drag'е. Placement
+            персистится в JSON-конфиг, восстанавливается при переподключении.</li>
+        <li>Реализовал <strong>hotplug мониторов</strong> хоста (подключение/
+            отключение/смена разрешения) онлайн без рестарта — сервер
+            пересчитывает bbox, GUI перерисовывает раскладку, клиенты остаются
+            на своих местах. На Linux — X RandR subscribe.</li>
+        <li>Сделал <strong>gap-crossing курсора</strong> между мониторами:
+            raycast по push-оси на сервере + teleport-across-gap на
+            server-facing кромке клиента при release — курсор плавно
+            перепрыгивает визуальные зазоры, работает в обе стороны.</li>
+        <li>Хранение секретов — через <strong>OS keyring</strong> (Windows
+            Credential Manager / GNOME Keyring / KWallet), self-signed
+            сертификаты с SHA-256 fingerprint, trust-on-first-use.</li>
+        <li>CI-сборки под Windows/Linux, готовые релизные бинарники на
+            GitHub Releases.</li>
+      </ul>
+    </div>
+    <div class="tab-panel challenges" data-tab="challenges">
+      <details>
+        <summary><span class="warn-dot"></span>Коллизии при drag-and-drop расстановке клиентов<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            При перетаскивании клиентского экрана в произвольную точку
+            сетки rounding к grid-шагу мог уронить его <strong>внутрь</strong>
+            уже занятого монитора (server или другой client). Просто отменять
+            drop — плохой UX: пользователь не понимает, где место есть.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> двухуровневая защита.
+            <strong>(1)</strong> во время drag'а axis-движение блокируется на
+            кромке любого существующего экрана — курсор физически не затаскивает
+            клиент внутрь. <strong>(2)</strong> после drop'а
+            <code>findFreeGridSpot</code> делает <strong>ring-search</strong>
+            по grid'у (до 30 колец) и приземляет в ближайшую свободную ячейку;
+            при полном отсутствии места — откат к позиции начала drag'а.
+            Плюс halo-подсветка валидных позиций во время drag'а, чтобы
+            было видно, куда вообще можно примкнуть.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Залипание модификаторов при grab-переходе<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Если пользователь переходил на клиента с зажатым Ctrl/Shift, на
+            сервере hook фиксировал key-down, но key-up уже улетал в клиент
+            (или наоборот) — модификатор «залипал» на одной из сторон, курсор
+            и ввод начинали вести себя неадекватно.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> router явно синхронизирует набор
+            зажатых модификаторов при каждом grab-переходе: на сторону, с
+            которой уходим, дожимает синтетические key-up; на сторону, куда
+            приходим — восстанавливает зажатые key-down. Состояние
+            модификаторов стало свойством router'а, а не платформенного
+            хука.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Gap между мониторами: курсор «туда смог, обратно нет»<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            В GUI между сервером и клиентом можно оставить визуальный зазор.
+            Курсор корректно перелетал на клиент по push-оси, но вернуться
+            не мог — raycast на сервере отрабатывал, а на клиенте
+            gap-teleport при release не срабатывал, курсор «застревал» на
+            кромке удалённого экрана.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> симметричный gap-cross в обе стороны —
+            на сервере raycast по направлению push'а, на клиенте
+            teleport-across-gap на server-facing кромке в момент release
+            управления. Проверено на диагональных и не-смежных раскладках.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Hotplug мониторов без перезапуска<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">
+            Подключение/отключение внешнего монитора или смена разрешения
+            в первой версии требовали рестарта сервера — иначе bbox и
+            координаты placement'ов уезжали в никуда, клиенты оказывались
+            в невидимой зоне.
+          </p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> онлайн-пересчёт bbox при событиях
+            display change (WinAPI <code>WM_DISPLAYCHANGE</code> /
+            X RandR subscribe). GUI перерисовывает раскладку, placement'ы
+            клиентов пересчитываются относительно новой геометрии, клиенты
+            остаются на своих местах. Wayland не поддерживается намеренно —
+            протокол не даёт нужного capture.
           </div>
         </div>
       </details>
