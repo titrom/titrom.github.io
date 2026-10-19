@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Полх Тимофей Александрович — Полное резюме</title>
-<meta name="description" content="Полх Тимофей — Middle Go Developer / Tech Lead (de facto). Real-time распределённые системы, anti-drone, PTZ, ML-ops.">
+<meta name="description" content="Полх Тимофей — Middle Go Developer / Tech Lead (de facto). Real-time системы на Go, видеотрекинг, DeepStream, PTZ Pelco-D / Hikvision ISAPI, ML-ops.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Полх Тимофей — Middle Go Developer / Tech Lead">
-<meta property="og:description" content="Real-time распределённые системы · anti-drone · PTZ (Pelco-D) · ML-ops · Tech Lead (de facto).">
+<meta property="og:description" content="Real-time системы на Go · видеотрекинг · DeepStream · PTZ Pelco-D / Hikvision ISAPI · ML-ops · Tech Lead (de facto).">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Полх Тимофей — Middle Go Developer / Tech Lead">
-<meta name="twitter:description" content="Real-time распределённые системы · anti-drone · PTZ (Pelco-D) · ML-ops.">
+<meta name="twitter:description" content="Real-time системы на Go · видеотрекинг · DeepStream · PTZ Pelco-D / Hikvision ISAPI · ML-ops.">
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%232563eb"/><text x="32" y="43" font-family="JetBrains Mono, monospace" font-size="30" font-weight="700" fill="white" text-anchor="middle">ПТ</text></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1042,7 +1042,7 @@
     <a class="nav-link" href="#techlead">Тех-лид ответственность</a>
     <a class="nav-link" href="#projects">Проекты</a>
     <a class="nav-link nav-sub" href="#project-antidrone">— Anti-Drone Service</a>
-    <a class="nav-link nav-sub" href="#project-ptz">— PTZ Driver (Pelco-D)</a>
+    <a class="nav-link nav-sub" href="#project-ptz">— PTZ Driver (Pelco-D / ISAPI)</a>
     <a class="nav-link nav-sub" href="#project-ml">— INK-ML Classification</a>
     <a class="nav-link nav-sub" href="#project-stand">— Hardware Test Stand</a>
     <a class="nav-link" href="#personal">Личные проекты</a>
@@ -1058,10 +1058,9 @@
 
   <!-- ============================== HERO ============================== -->
   <section id="hero" class="card hero-card">
-    <!-- TODO: finalize status text -->
     <div class="status-pill">
       <span class="status-dot"></span>
-      <span>Open to work · Middle/Senior Go · Москва / гибрид / удалёнка · от 140 тыс. ₽</span>
+      <span>Open to work · Middle/Senior Go · Москва / гибрид / удалёнка</span>
     </div>
     <h1 class="hero-name">Полх Тимофей Александрович</h1>
     <div class="hero-role">Middle → Senior Go Developer / Backend Engineer · Tech Lead (de facto)</div>
@@ -1100,16 +1099,16 @@
         <div class="stat-label">коммерческий опыт</div>
       </div>
       <div class="stat">
-        <div class="stat-value">~44k LOC</div>
-        <div class="stat-label">flagship anti-drone</div>
+        <div class="stat-value">6 потоков</div>
+        <div class="stat-label">DeepStream + Go-трекер</div>
       </div>
       <div class="stat">
-        <div class="stat-value">16 пакетов</div>
-        <div class="stat-label">hexagonal monolith</div>
+        <div class="stat-value">320/320</div>
+        <div class="stat-label">кадров replay: Go = Python</div>
       </div>
       <div class="stat">
-        <div class="stat-value">7 race-багов</div>
-        <div class="stat-label">устранено в velocity</div>
+        <div class="stat-value">963 → 38 мс</div>
+        <div class="stat-label">пик задержки на симуляторе</div>
       </div>
       <div class="stat">
         <div class="stat-value">Tech Lead</div>
@@ -1125,8 +1124,10 @@
       <p>
         Go-разработчик с ~2 годами коммерческого опыта проектирования
         <strong>real-time распределённых систем</strong>: обработка радарных
-        данных, PTZ-управление камерами по протоколу Pelco-D, интеграция
-        ML-сервисов, hardware-in-the-loop тестирование.
+        данных, PTZ-управление по Pelco-D и Hikvision ISAPI, интеграция
+        ML-сервисов и видеотрекинга, hardware-in-the-loop тестирование.
+        Развиваю цепочку от радарного трека и детекции до выбора видеоцели,
+        наведения камеры и аларма со снимком.
       </p>
       <p>
         Начинал стажёром <strong>computer-vision инженером</strong>, за полгода
@@ -1141,7 +1142,9 @@
         Сильные компетенции в <strong>concurrency</strong> (goroutines, channels,
         sync primitives), event-loop архитектуре, <strong>hexagonal /
         ports-and-adapters</strong>, полной observability (Prometheus, pprof,
-        slog), Docker и CI/CD.
+        slog), Docker и CI/CD. Переношу вычислительные части трекера
+        с Python на Go, профилирую DeepStream-пайплайны и проверяю изменения
+        через replay, симуляторы и отдельные тестовые установки с откатом.
       </p>
     </div>
   </section>
@@ -1254,7 +1257,7 @@
   <div id="projects" class="section-head projects-head">Проекты в рамках Softline<button class="filter-clear" type="button">× сбросить фильтр</button></div>
 
   <!-- ============================== PROJECT 1: ANTI-DRONE ============================== -->
-  <article id="project-antidrone" class="card project-card" data-tech="go python websocket cbor onnx docker prometheus slog pprof hexagonal cuda thingsboard kalman">
+  <article id="project-antidrone" class="card project-card" data-tech="go python websocket cbor onnx docker prometheus slog pprof hexagonal cuda thingsboard kalman deepstream tensorrt opencv clickhouse">
     <div class="project-header">
       <div class="project-num">01</div>
       <div class="project-title">Anti-Drone General Service<span class="project-flagship"> · flagship</span></div>
@@ -1268,13 +1271,18 @@
       <span class="chip">Docker</span>
       <span class="chip">Prometheus</span>
       <span class="chip">ThingsBoard</span>
+      <span class="chip">DeepStream / TensorRT</span>
+      <span class="chip">Go tracker / OpenCV</span>
+      <span class="chip">ClickHouse</span>
     </div>
-    <div class="project-meta-small">2024 — настоящее время · ~44 000 LOC · 137 Go-файлов · 16 пакетов</div>
+    <div class="project-meta-small">2024 — настоящее время · радар + видео · 6 потоков оптики и тепла · обновлено 19.10.2026</div>
     <div class="project-intro">
       Real-time распределённая система детектирования, сопровождения и
       автономного подавления БПЛА. Центральный координационный узел: приём
       радарных данных, управление PTZ-камерами, оркестрация джаммеров,
       интеграция с ML-сервисом классификации и IoT-платформой ThingsBoard.
+      Видеоконтур: DeepStream, детекция RF-DETR / TensorRT, собственный
+      Go-трекер, выбор цели между оптикой и тепловизором, алармы со снимками.
     </div>
     <div class="tabs">
       <button class="tab-btn active" data-tab="done">Что сделано</button>
@@ -1283,14 +1291,14 @@
     <div class="tab-panel done active" data-tab="done">
       <ul>
         <li>Спроектировал и реализовал <strong>модульный монолит по паттерну
-            Ports &amp; Adapters (hexagonal)</strong>: ~44 000 LOC, 137 Go-файлов,
-            43 test-файла, 16 внутренних пакетов —
+            Ports &amp; Adapters (hexagonal)</strong>: отдельные компоненты
+            обработки треков, наведения, хранения, ML и диагностики —
             <code>autoaim</code>, <code>tracking</code>, <code>storage</code>,
             <code>ml</code>, <code>ws</code>, <code>diagnostics</code>,
             <code>kalman</code>, <code>corridor</code>,
             <code>camerapolygons</code>, <code>platform</code> и др.</li>
-        <li>Реализовал <strong>event-loop обработки радарных треков</strong> с
-            sub-millisecond latency через in-memory thread-safe stores
+        <li>Реализовал <strong>event-loop обработки радарных треков</strong>
+            через in-memory thread-safe stores
             (<code>sync.RWMutex</code>, <code>sync.Map</code>,
             <code>atomic</code>).</li>
         <li>Разработал алгоритм <strong>назначения треков на башни</strong> на
@@ -1334,6 +1342,28 @@
             правим пороги / scoring / Kalman-параметры. Каждый инцидент с
             объекта превращается в датасет, по которому регрессионно проверяется
             фикс.</li>
+        <li>Разработал <strong>выбор и удержание видеоцели</strong> по полному
+            ID и эпохе выбора: режимы hold / auto-switch, приоритет оптики или
+            тепловизора, переход на свежий резервный поток и возврат к радарному
+            наведению после заданного интервала. Класс и алармы привязаны к
+            выбранной видеоцели, а не к любой рамке в кадре.</li>
+        <li>Перенес <strong>ядро motion-трекера с Python на Go</strong>:
+            Kalman-фильтрация, глобальное сопоставление, жизненный цикл ID,
+            компенсация движения камеры и история класса. В replay эталонного
+            журнала совпали все <strong>320 из 320 кадров</strong>.</li>
+        <li>Перевел <strong>6 DeepStream-потоков на Go-трекер и NVDEC</strong>,
+            оптимизировал OpenCV-оценку движения камеры до ширины 640 px.
+            После тестовой установки проверены готовность Annotated RTSP и
+            частота: около 25 кадр/с на оптике, 12,5 кадр/с на тепле.</li>
+        <li>Доработал <strong>алармы и архивирование</strong>: снимки целей,
+            ограничение повторов отдельно для каждого радарного трека,
+            очистка состояния при снятии назначения и по TTL, корректная
+            обработка удаленного аларма и устройств без камеры.
+            Данные детекций и траекторий сохраняются в ClickHouse.</li>
+        <li>Настроил <strong>GitLab CI для сборки только main</strong> и проверки
+            изменений через локальные race-тесты, vet и staticcheck.
+            Тестовые установки получают отдельные образы, сохраненные
+            конфигурации и готовые сценарии отката.</li>
       </ul>
     </div>
     <div class="tab-panel challenges" data-tab="challenges">
@@ -1446,25 +1476,44 @@
           </div>
         </div>
       </details>
+      <details>
+        <summary><span class="warn-dot"></span>Потеря теплового потока и перенос класса на другую цель<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">Удержание устаревшей тепловой цели блокировало живую оптику, а метка птицы могла влиять на новый видео ID после смены назначения.</p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> проверяю свежесть источника, храню время паузы и разрешаю радар после grace-интервала. Метка класса содержит видео ID и эпоху выбора; ключ ограничения алармов включает радарный трек. Переходы покрыты race-тестами и проверкой тестов на возврате старой логики.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Перенос трекера на Go без скрытого расхождения с Python<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">Порядок обхода map, состояние потока и повторные метки времени могли менять соответствия детекций и ID после переноса.</p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> зафиксировал детерминированный порядок и добавил покадровое сравнение полного JSON-журнала с Python-эталоном. Пять повторных replay-прогонов дали <strong>320/320 совпадений</strong>; новые проверки также покрывают сброс поколения потока и конфигурацию боевого пайплайна.
+          </div>
+        </div>
+      </details>
     </div>
   </article>
 
   <!-- ============================== PROJECT 2: PTZ DRIVER ============================== -->
-  <article id="project-ptz" class="card project-card" data-tech="go gin tcp pelco-d docker prometheus wgs84">
+  <article id="project-ptz" class="card project-card" data-tech="go gin tcp pelco-d isapi docker prometheus wgs84">
     <div class="project-header">
       <div class="project-num">02</div>
-      <div class="project-title">PTZ Camera Driver (Pelco-D)</div>
+      <div class="project-title">PTZ Camera Driver (Pelco-D / Hikvision ISAPI)</div>
     </div>
     <div class="stack-chips">
       <span class="chip">Go</span>
       <span class="chip">Gin</span>
       <span class="chip">TCP</span>
       <span class="chip">Pelco-D</span>
+      <span class="chip">Hikvision ISAPI</span>
       <span class="chip">Docker</span>
     </div>
     <div class="project-meta-small">2024 — настоящее время · 60+ REST endpoints · собственный HIL-симулятор</div>
     <div class="project-intro">
-      Production-grade драйвер PTZ-камер по протоколу Pelco-D с REST API и
+      Production-grade драйвер PTZ-камер по Pelco-D и Hikvision ISAPI с REST API и
       собственным hardware-in-the-loop физическим симулятором. Используется
       anti-drone сервисом для наведения камер на цели в реальном времени.
     </div>
@@ -1483,10 +1532,10 @@
             ответов в concurrent-сценариях.</li>
         <li>Написал парсер и энкодер <strong>Pelco-D бинарного протокола</strong>
             (7-байт стандарт + 15-байт extended), 60+ REST endpoints на Gin.</li>
-        <li>Реализовал <strong>P / PD-controller для velocity-режима</strong>
-            (<code>kP=200</code>, <code>deadzone=0.02</code>,
-            <code>maxSpeed=63</code>) + <strong>auto-stop</strong> через 300 мс
-            после последнего bbox.</li>
+        <li>Реализовал <strong>PID-управление по bbox</strong>, ограничения
+            скорости и свежести данных, фильтрацию и auto-stop при потере
+            потока. Параметры и калибровки задаются отдельно для устройств
+            и оптических / тепловых каналов.</li>
         <li>Построил полную <strong>WGS-84 геодезическую цепочку</strong>:
             LLA → ECEF → ENU + rotation matrices + tilt correction для
             sub-degree наведения.</li>
@@ -1497,6 +1546,19 @@
             trigger при offline, circuit breaker на угловые обновления.</li>
         <li>Docker multi-stage build, graceful shutdown (10 с timeout),
             async / sync режимы API, Prometheus метрики на все эндпоинты.</li>
+        <li>Добавил <strong>Hikvision ISAPI через HTTP(S) Digest</strong>:
+            единый интерфейс камеры, нормализация углов, зума и скоростей,
+            проверка семантических ошибок XML-ответа, явный ответ 501 для
+            неподдерживаемых функций, reload конфигурации.</li>
+        <li>Развил <strong>пассивную самонастройку PID</strong>: сбор эпизодов
+            и кандидатов в shadow-режиме, разделение по камере, каналу и
+            профилю. Вынес тяжелый анализ из горячего пути, ограничил длину
+            эпизода и запретил notch-фильтр выше безопасной частоты.</li>
+        <li>Исправил <strong>watchdog непрерывного сопровождения</strong>:
+            свежий поток bbox больше не вызывает периодический ложный Stop;
+            защита учитывает ошибку наведения и фактический поворот камеры.
+            На симуляторе максимум задержки соседней камеры при закрытии
+            длинного эпизода снизился с <strong>963 до 38 мс</strong>.</li>
       </ul>
     </div>
     <div class="tab-panel challenges" data-tab="challenges">
@@ -1606,6 +1668,24 @@
             + rotation matrices по установочной ориентации + tilt correction.
             Отдельно — нормализация azimuth через модульную арифметику
             (избегает багов на переходе 359° → 0°).
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Самонастройка блокировала соседние камеры<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">Закрытие длинного эпизода выполняло тяжелый анализ под общим mutex. В воспроизводимом сценарии запрос соседней камеры занимал до 963 мс.</p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> отделил анализ от горячего пути и ограничил эпизод 60 с / 2400 тиками. В том же симуляционном сценарии максимум снизился до <strong>38 мс</strong>; после конца потока задержка оставалась менее 2 мс. Результат относится к этому стендовому прогону.
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="warn-dot"></span>Ложный Stop при длительном живом bbox-потоке<span class="chev"></span></summary>
+        <div class="challenge-inner">
+          <p class="challenge-body">Прежний watchdog принимал длительность движения за признак вращения и останавливал исправное непрерывное сопровождение примерно раз в 40 секунд.</p>
+          <div class="challenge-solution">
+            <strong>Решение:</strong> заменил предел времени критериями большой ошибки без устойчивого улучшения и фактического поворота pan по свежей позиции. Отдельно сохранил auto-stop при потере bbox; сценарии ровного сопровождения 90 и 180 секунд проходят без ложного срабатывания, штатная регрессия совпадает побайтно.
           </div>
         </div>
       </details>
@@ -1758,6 +1838,11 @@
             <code>/api/bbox</code> и замеряет итоговую ориентацию камеры.</li>
         <li>Нашёл и исправил <strong>7 критических багов</strong> в
             velocity-режиме.</li>
+        <li>Расширил <strong>воспроизводимые проверки регулятора</strong>:
+            notch, смена зума, длинные эпизоды, watchdog и параллельные камеры.
+            Добавил сравнение старой и новой версий по CSV / JSONL;
+            штатная регрессия совпадает побайтно, 30-минутный прогон
+            с race detector прошел без обнаруженных гонок.</li>
       </ul>
     </div>
     <div class="tab-panel challenges" data-tab="challenges">
@@ -2054,6 +2139,8 @@
           <span class="tag" data-filter="tcp">TCP (custom protocol parsing)</span>
           <span class="tag">waiter-pattern dispatcher</span>
           <span class="tag" data-filter="pelco-d">Pelco-D (7-byte + 15-byte extended)</span>
+          <span class="tag" data-filter="isapi">Hikvision ISAPI / HTTP Digest</span>
+          <span class="tag">RTSP / MediaMTX</span>
           <span class="tag">JSON</span>
           <span class="tag" data-filter="cbor">CBOR (fxamacker/cbor)</span>
           <span class="tag">Protocol Buffers</span>
@@ -2083,7 +2170,9 @@
           <span class="tag">golang:alpine → alpine</span>
           <span class="tag" data-filter="docker">Docker Compose</span>
           <span class="tag" data-filter="cuda">GPU passthrough (nvidia/cuda)</span>
-          <span class="tag">GitLab CI/CD</span>
+          <span class="tag">GitLab CI/CD · main-only builds</span>
+          <span class="tag" data-filter="clickhouse">ClickHouse</span>
+          <span class="tag">release / rollback</span>
           <span class="tag">unit + race</span>
           <span class="tag">gosec</span>
           <span class="tag">staticcheck</span>
@@ -2103,6 +2192,8 @@
           <span class="tag">SAST (gosec, staticcheck)</span>
           <span class="tag">HIL симуляторы (20 Hz физика)</span>
           <span class="tag">регрессионные тулы на сценарии</span>
+          <span class="tag">детерминированный replay Python / Go</span>
+          <span class="tag">мутационные проверки тестов</span>
         </div>
       </div>
 
@@ -2116,7 +2207,9 @@
           <span class="tag" data-filter="kalman">3D Kalman filter</span>
           <span class="tag">point-in-polygon geo-fencing</span>
           <span class="tag">camera FOV polygons</span>
-          <span class="tag">P / PD-контроллеры</span>
+          <span class="tag">PID / shadow self-tuning</span>
+          <span class="tag">notch-фильтр</span>
+          <span class="tag">Hungarian assignment / lifecycle ID</span>
           <span class="tag">координатные преобразования</span>
           <span class="tag">нормализация азимута</span>
         </div>
@@ -2133,6 +2226,11 @@
           <span class="tag">percentile clip</span>
           <span class="tag">dB auto-detect</span>
           <span class="tag">runtime config-reload</span>
+          <span class="tag" data-filter="deepstream">NVIDIA DeepStream / GStreamer</span>
+          <span class="tag" data-filter="tensorrt">TensorRT / RF-DETR</span>
+          <span class="tag" data-filter="opencv">OpenCV / camera motion</span>
+          <span class="tag" data-filter="cuda">NVDEC / NVENC</span>
+          <span class="tag">Python → Go / c-shared</span>
           <span class="tag" data-filter="cuda">CUDA → CPU fallback</span>
         </div>
       </div>
@@ -2186,7 +2284,7 @@
         </div>
         <div class="soft-body">
           <div class="soft-title">Системный дебаг</div>
-          <div class="soft-desc">Диагностика race conditions, deadlock'ов, распределённых проблем (пример: 7 критических багов в velocity-режиме anti-drone, найдены и закрыты).</div>
+          <div class="soft-desc">Диагностика гонок, блокировок и ошибок сопровождения через pprof, покадровые журналы, replay и сравнение версий на симуляторе.</div>
         </div>
       </div>
       <div class="soft-item">
@@ -2204,7 +2302,7 @@
         </div>
         <div class="soft-body">
           <div class="soft-title">Внимание к деталям</div>
-          <div class="soft-desc">Sub-degree наведение, sub-millisecond latency, точные геодезические преобразования.</div>
+          <div class="soft-desc">Проверяю свежесть данных, эпохи выбора цели, единицы измерения и точные геодезические преобразования.</div>
         </div>
       </div>
       <div class="soft-item">
